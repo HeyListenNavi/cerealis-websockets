@@ -117,6 +117,9 @@ async def drone_info(websocket: WebSocket):
         manager.disconnect_client_info(websocket)
         print("Drone info client disconnected")
 
+@app.get("/")
+async def health_check():
+    return {"status": "ok"}
 
 if __name__ == "__main__":
     uvicorn.run(
